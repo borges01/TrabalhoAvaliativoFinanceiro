@@ -1,0 +1,17 @@
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/repository/OrderCategoryRepository.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/controllers/UserController.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/db/Conn.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/filter/AuthFilter.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/repository/CRUD.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/controllers/RegisterController.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/repository/AccountRepository.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/controllers/OrderController.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/controllers/AccountController.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/models/User.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/models/OrderCategory.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/models/Order.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/repository/UserRepository.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/models/Account.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/controllers/DashboardController.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/repository/OrderRepository.java
+/home/borges/NetBeansProjects/TrabalhoAvaliativoFinanceiro/src/main/java/controllers/LoginController.java

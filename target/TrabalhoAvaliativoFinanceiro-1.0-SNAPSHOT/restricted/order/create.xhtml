@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Order - create</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Google Font: Source Sans Pro -->
+        <!-- Font Awesome -->
+        <!--<link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css"/>css-->
+        <h:outputStylesheet name="plugins/fontawesome-free/css/all.min.css" ></h:outputStylesheet>
+        <!-- icheck bootstrap -->
+        <!--  <link rel="stylesheet" href="../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>-->
+        <h:outputStylesheet name="plugins/icheck-bootstrap/icheck-bootstrap.min.css" ></h:outputStylesheet>
+
+        <!-- Theme style -->
+        <!--<link rel="stylesheet" href="../assets/dist/css/adminlte.min.css"/>-->
+        <h:outputStylesheet name="dist/css/adminlte.min.css" ></h:outputStylesheet>
+
+    </h:head>
+    <body class="hold-transition sidebar-mini">
+        <!-- Site wrapper -->
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+                <a href="#" class="brand-link">
+                    <h:graphicImage  
+                        value = "https://as2.ftcdn.net/v2/jpg/00/79/77/19/1000_F_79771929_dkEtuIuxFdNOlv6Evj1Nj1kaSLgSas34.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                        style="opacity: .8"/> 
+                    <span class="brand-text font-weight-light">MyAccounts</span>
+                </a>
+
+                <div class="sidebar">
+                    <!-- Sidebar user (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="info">
+                            <h:link outcome="/restricted/user/profile" class="d-block">
+                                Usuário 
+                            </h:link>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li class="nav-item">
+                                <h:link outcome="/restricted/dashboard" class="nav-link">
+                                    <i class="nav-icon fas fa-chart-line"></i>
+                                    <p> Dashboard </p>
+                                </h:link>
+                            </li>
+                            <li class="nav-item">
+                                <h:link outcome="/restricted/account/index" class="nav-link">
+                                    <i class="nav-icon fas fa-university"></i>
+                                    <p> Contas </p>
+                                </h:link>
+                            </li>
+                            <li class="nav-item">
+                                <h:link outcome="/restricted/order/index" class="nav-link">
+                                    <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                                    <p> Lançamentos </p>
+                                </h:link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Adicionar Lançamento</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active">Adicionar Lançamento</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Conta</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h:form id="form">
+                                        <h:messages showDetail="true" />
+                                        <div class="form-group">
+                                            <label for="inputName">Conta</label>
+                                            <h:selectOneMenu value="#{order.order.accountId}" id="accountNumber" class="form-control custom-select" required="true" requiredMessage="Selecione a conta">
+                                                <c:forEach var="o" items="${order.accounts}">
+                                                    <f:selectItem itemValue = "${o.id}" itemLabel = "${o.name}" /> 
+                                                </c:forEach>
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputClientCompany">Categoria</label>
+                                            <h:selectOneMenu value="#{order.order.categoryId}" id="accountName" class="form-control custom-select" required="true" requiredMessage="Informe a categoria">
+                                                <c:forEach var="o" items="${order.orderCategories}">
+                                                    <f:selectItem itemValue = "${o.id}" itemLabel = "${o.description}" /> 
+                                                </c:forEach>
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputProjectLeader">Descrição</label>
+                                            <h:inputText id="orderDescription" class="form-control" value="#{order.order.description}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputProjectLeader">Valor</label>
+                                            <h:inputText id="accountInitialAmount" class="form-control"  value="#{order.order.amount}" required="true" requiredMessage="Informe o valor"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:commandButton action="#{order.save()}" class="btn btn-success" value="Salvar" />
+                                        </div>
+                                    </h:form>
+                                </div>
+                                <!-- /.card-body -->
+
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div class="float-right d-none d-sm-block">
+                    <b>Versão</b> 1.0.0
+                </div>
+                <strong>Copyright; 2014-2021 <a href="#">My Accounts</a>.</strong> Todos os direitos reservados.
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+        <h:outputScript  name="plugins/jquery/jquery.min.js"></h:outputScript>
+        <h:outputScript name="plugins/bootstrap/js/bootstrap.bundle.min.js"></h:outputScript>
+        <h:outputScript  name="dist/js/adminlte.min.js"></h:outputScript>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>MyAccounts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <!-- Google Font: Source Sans Pro -->
+  <!-- Font Awesome -->
+  <!--<link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css"/>css-->
+  <h:outputStylesheet name="plugins/fontawesome-free/css/all.min.css" ></h:outputStylesheet>
+  <!-- icheck bootstrap -->
+<!--  <link rel="stylesheet" href="../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>-->
+    <h:outputStylesheet name="plugins/icheck-bootstrap/icheck-bootstrap.min.css" ></h:outputStylesheet>
+
+  <!-- Theme style -->
+  <!--<link rel="stylesheet" href="../assets/dist/css/adminlte.min.css"/>-->
+    <h:outputStylesheet name="dist/css/adminlte.min.css" ></h:outputStylesheet>
+
+    </h:head>
+    <h:body class="hold-transition login-page">
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <a href="../../index2.html" class="h1"><b>My</b>Accounts</a>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Faça login para iniciar sua sessão</p>
+
+        <h:form id="form">
+            <h:messages showDetail="true" />
+          <div class="input-group mb-3">
+              <h:inputText id="email" required="true" class="form-control" requiredMessage="Informe seu email" value="#{login.email}"/>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+              <h:inputSecret id="password" class="form-control" required="true" requiredMessage="Informe a senha" value="#{login.password}" />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" name="remember" id="remember"/>
+                <label for="remember">
+                  Lembre-se de mim
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <h:commandButton action="#{login.login()}" class="btn btn-primary btn-block" value="Entrar" />
+            </div>
+            <!-- /.col -->
+          </div>
+        </h:form>
+        <p class="mb-0">
+            <h:link outcome="register" styleClass="text-center" value="Não possui conta? Cadastre-se aqui."></h:link>
+        </p>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.login-box -->
+
+    <!-- jQuery -->
+<script src="../resources/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../resources/dist/js/adminlte.min.js"></script>
+</h:body>
+</html>

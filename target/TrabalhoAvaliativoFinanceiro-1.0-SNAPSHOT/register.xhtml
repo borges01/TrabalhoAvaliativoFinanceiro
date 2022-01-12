@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>MyAccounts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Google Font: Source Sans Pro -->
+        <!-- Font Awesome -->
+        <!--<link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css"/>css-->
+        <h:outputStylesheet name="plugins/fontawesome-free/css/all.min.css" ></h:outputStylesheet>
+        <!-- icheck bootstrap -->
+        <!--  <link rel="stylesheet" href="../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>-->
+        <h:outputStylesheet name="plugins/icheck-bootstrap/icheck-bootstrap.min.css" ></h:outputStylesheet>
+
+        <!-- Theme style -->
+        <!--<link rel="stylesheet" href="../assets/dist/css/adminlte.min.css"/>-->
+        <h:outputStylesheet name="dist/css/adminlte.min.css" ></h:outputStylesheet>
+
+    </h:head>
+    <body class="hold-transition register-page">
+        <div class="register-box">
+            <div class="card card-outline card-primary">
+                <div class="card-header text-center">
+                    <a href="../../index2.html" class="h1"><b>My</b>Accounts</a>
+                </div>
+                <div class="card-body">
+                    <p class="login-box-msg">Faça seu cadastro</p>
+
+                    <form action="../../index.html" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="first-name" name="first-name" placeholder="Primeiro nome"/>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Último nome"/>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="document" name="document" placeholder="CPF"/>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>          
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="email" placeholder="Email"/>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" name="password" placeholder="Senha"/>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="agreeTerms" name="terms" value="agree"/>
+                                    <label for="agreeTerms">
+                                        Eu concordo com os <a href="#">termos de uso</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">Registro</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                    <h:link outcome="login" styleClass="text-center" value="Eu já tenho uma conta"></h:link>
+                </div>
+                <!-- /.form-box -->
+            </div><!-- /.card -->
+        </div>
+        <!-- /.register-box -->
+
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js"></script>
+    </body>
+</html>
