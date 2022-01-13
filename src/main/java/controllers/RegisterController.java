@@ -8,6 +8,7 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import models.User;
 import repository.CRUD;
@@ -18,7 +19,7 @@ import repository.UserRepository;
  * @author borges
  */
 @ManagedBean(name = "register")
-@RequestScoped
+@ViewScoped
 public class RegisterController implements Serializable {
 
     private CRUD repository;
@@ -29,9 +30,8 @@ public class RegisterController implements Serializable {
             user = new User();
             repository = (CRUD) new UserRepository();
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ERRO", "Oops! "+e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ERRO", "Oops! " + e.getMessage()));
         }
     }
-
 
 }

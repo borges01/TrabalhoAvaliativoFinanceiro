@@ -5,6 +5,7 @@ repository/AccountRepository.class
 repository/UserRepository.class
 controllers/DashboardController.class
 repository/OrderRepository.class
+controllers/LoginController.class
 models/Order.class
 controllers/AccountController.class
 models/Account.class

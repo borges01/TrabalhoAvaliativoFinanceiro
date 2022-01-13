@@ -37,6 +37,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <h:form id="form">
+                            <h:commandButton action="#{login.logout()}" class="btn btn-info" value="Sair"/>
+                        </h:form>
+                    </li>
+                </ul>
+                
             </nav>
             <!-- /.navbar -->
 
@@ -111,7 +119,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
                 <!-- Main content -->
                 <section class="content">
-
+                    <h:messages showDetail="true" />
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
@@ -162,7 +170,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                             <td>
                                                 ${o.createdAt}
                                             </td>
-                                            
+
                                             <td class="project-actions text-right">
                                                 <h:form id="form">
                                                     <h:commandLink class="btn btn-primary btn-sm" action="#{order.show()}">
@@ -176,11 +184,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                                         </i> Editar
                                                     </h:commandLink>
 
-                                                    <a class="btn btn-danger btn-sm" href="#">
+                                                    <h:commandLink class="btn btn-danger btn-sm" action="#{order.delete()}">
+                                                        <f:setPropertyActionListener value="#{o}" target="#{order.order}" />
                                                         <i class="fas fa-trash">
-                                                        </i>
-                                                        Excluir
-                                                    </a>
+                                                        </i> Excluir
+                                                    </h:commandLink>
                                                 </h:form>
                                             </td>
                                         </tr>

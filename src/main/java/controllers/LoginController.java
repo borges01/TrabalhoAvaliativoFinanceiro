@@ -45,7 +45,7 @@ public class LoginController implements Serializable {
                 session.setAttribute("user_email", user.getEmail());
                 session.setAttribute("user_id", user.getId());
 
-                session.setMaxInactiveInterval(60 * 2);
+                session.setMaxInactiveInterval(60 * 10);
 
                 return "restricted/dashboard.xhtml";
             }
@@ -63,14 +63,16 @@ public class LoginController implements Serializable {
 
     public String logout() {
         try {
-            HttpSession sessao = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-            sessao.invalidate();
-           
+            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+            session.removeAttribute("user");
+            session.removeAttribute("user_email");
+            session.removeAttribute("user_id");
+            session.invalidate();
+
         } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ERRO", "Erro ao efetuar login!"));
-
         }
-         return "/";
+        return "/login.xhtml";
     }
 
     public String getEmail() {

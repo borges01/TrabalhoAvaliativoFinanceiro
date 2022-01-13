@@ -37,16 +37,13 @@ public class AuthFilter implements Filter {
             //Pega a sessão do usuário, caso exista
             HttpSession session = httpRequest.getSession(true);
             boolean logged = session.getAttribute("user_email") != null;
-            int userId = (int) session.getAttribute("user_id");
-
-            System.out.println(userId);
-
+            
             if (logged) {
                 //Siga em frente
                 chain.doFilter(request, response);
             } else {
 //                httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-                httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.xhtml");
             }
 
         } finally {

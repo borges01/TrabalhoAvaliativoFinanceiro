@@ -8,7 +8,9 @@ import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import models.Account;
@@ -90,6 +92,25 @@ public class AccountController implements Serializable {
             return null;
         }
 
+    }
+
+    public String delete() {
+        try {
+
+            repository.delete(account.getId());
+
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "SUCESSO", "Lançamento deletado com sucesso!");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+
+            accounts = repository.myAccounts(loggedUserid);
+            account = new Account();
+
+            return "index.xhtml";
+        } catch (Exception e) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO", "Oops! " + e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+            return null;
+        }
     }
 
     public Account getAccount() {

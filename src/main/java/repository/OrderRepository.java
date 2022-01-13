@@ -176,7 +176,7 @@ public class OrderRepository implements CRUD<Order> {
     @Override
     public void delete(int pk) throws SQLException {
         Connection connection = null;
-        String sql = "DELETE FROM order WHERE id = ?";
+        String sql = "DELETE FROM ifc.order WHERE id = ?";
 
         try {
             connection = Conn.getConnection();

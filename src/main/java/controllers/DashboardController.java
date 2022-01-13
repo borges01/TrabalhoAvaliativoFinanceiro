@@ -7,13 +7,14 @@ package controllers;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author borges
  */
 @ManagedBean(name = "dashboard")
-@SessionScoped
+@ViewScoped
 public class DashboardController {
-    
+
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import models.Order;
@@ -37,14 +38,13 @@ public class OrderController implements Serializable {
     private final OrderCategoryRepository orderCategoriesRepository;
     private final AccountRepository accountsRepository;
 
-
     public OrderController() {
         order = new Order();
         repository = new OrderRepository();
         orderCategoriesRepository = new OrderCategoryRepository();
         accountsRepository = new AccountRepository();
         try {
-HttpSession session = (HttpSession) FacesContext.
+            HttpSession session = (HttpSession) FacesContext.
                     getCurrentInstance().getExternalContext().getSession(false);
             loggedUserid = (int) session.getAttribute("user_id");
 
@@ -75,8 +75,8 @@ HttpSession session = (HttpSession) FacesContext.
             orders = repository.myOrders(loggedUserid);
             orderCategories = orderCategoriesRepository.findAll();
             accounts = accountsRepository.myAccounts(loggedUserid);
-
             order = new Order();
+
             return "index.xhtml";
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,6 +96,26 @@ HttpSession session = (HttpSession) FacesContext.
 
     public String show() {
         return "show.xhtml";
+    }
+
+    public String delete() {
+        try {
+
+            repository.delete(order.getId());
+
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "SUCESSO", "Lançamento deletado com sucesso!");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+            orders = repository.myOrders(loggedUserid);
+            orderCategories = orderCategoriesRepository.findAll();
+            accounts = accountsRepository.myAccounts(loggedUserid);
+            order = new Order();
+
+            return "index.xhtml";
+        } catch (Exception e) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO", "Oops! " + e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+            return null;
+        }
     }
 
     public Order getOrder() {

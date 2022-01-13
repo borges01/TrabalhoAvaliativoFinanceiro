@@ -108,7 +108,7 @@ public class AccountRepository implements CRUD<Account> {
     @Override
     public void delete(int pk) throws SQLException {
         Connection connection = null;
-        String sql = "DELETE FROM account WHERE id = ?";
+        String sql = "DELETE FROM ifc.account WHERE id = ?";
 
         try {
             connection = Conn.getConnection();

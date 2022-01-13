@@ -36,6 +36,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <h:form id="form">
+                            <h:commandButton action="#{login.logout()}" class="btn btn-info" value="Sair"/>
+                        </h:form>
+                    </li>
+                </ul>
             </nav>
             <!-- /.navbar -->
 
